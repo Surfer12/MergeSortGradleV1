@@ -1,13 +1,6 @@
+public class MergeSortHelperNames {
 
-```java
-public class MergeSort {
-
-    public static void main(String[] args) {
-        int[] array = {38, 27, 43, 3, 9, 82, 10}; // Example array
-        System.out.println("Unsorted array: " + Arrays.toString(array));
-        performMergeSort(array, 0, array.length - 1);
-        System.out.println("Sorted array: " + Arrays.toString(array));
-    }
+   
 
     /**
      * Performs the merge sort algorithm on the specified array segment.
@@ -82,8 +75,4 @@ public class MergeSort {
         }
     }
 }
-````
 
-### Explanation of Changes:
-- **Method Names:** Changed `mergeSort` to `performMergeSort` and `merge` to `mergeSortedHalves` for clarity.
-- **Parameter Names:** Updated method parameters to be more descriptive (`left` to `startIndex`, `right` to `endIndex`, and `mid` to `middleIndex`).v

@@ -1,7 +1,5 @@
 Certainly! I'll review the code and provide comments and suggestions for improvement. Let's start with the main `MergeSort` class:
 
-
-````38:129:MergeSortAiReviewV1edit.md
 ```java
 /**
  * Merge Sort implementation in Java.
