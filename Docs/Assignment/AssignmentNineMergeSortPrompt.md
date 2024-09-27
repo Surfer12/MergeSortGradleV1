@@ -109,7 +109,7 @@ Due Tuesday by 11:59pm Points 100 Submitting a file upload File Types jpeg, png,
 
 ```
 Claude 3.5 Sonnet is utitlized for the refactoring of the inital merge sort code into a more readable and efficient format.
-Inital code was created by Cursor Small Language Model in the Cursor IDE. (link to cursor IDE)
+Inital code was created by Cursor Small Language Model in the Cursor IDE.
 ```
 
 ## Prompt the AI to explain the code and the merge function in detail. 
@@ -139,27 +139,53 @@ This implementation provides a good balance between efficiency and readability, 
 
 ## Iterate and Seek Clarifications: Claude 3.5 Sonnet's feedback on inital merge sort implimentation seen here. 
 # Inital Code created by Cursor Small In Line 
-
 ```java
 import java.util.Arrays;
 
-public class MergeSort {
+/**
+ * Merge Sort implementation in Java.
+ */
+public class MergeSortClaudeAlterV1 {
+
+
+    /**
+     * Sorts an array using the merge sort algorithm.
+     *
+     * @param array The array to be sorted.
+     * @param left  The starting index of the array segment.
+     * @param right The ending index of the array segment.
+     */
     public static void mergeSort(int[] array, int left, int right) {
+        // Base case: if the segment has 1 or fewer elements, it's already sorted
         if (left < right) {
-            int mid = left + (right - left) / 2;
+            int mid = left + (right - left) / 2; // Find the middle point (avoids integer overflow)
+
+            // Recursively sort the first and second halves
             mergeSort(array, left, mid);
             mergeSort(array, mid + 1, right);
+
+            // Merge the sorted halves
             merge(array, left, mid, right);
         }
     }
 
+    /**
+     * Merges two sorted subarrays of array[].
+     *
+     * @param array The array containing the subarrays.
+     * @param left  The starting index of the left subarray.
+     * @param mid   The ending index of the left subarray and the middle point.
+     * @param right The ending index of the right subarray.
+     */
     public static void merge(int[] array, int left, int mid, int right) {
         int n1 = mid - left + 1;
         int n2 = right - mid;
 
+        // Create temporary arrays
         int[] leftArray = Arrays.copyOfRange(array, left, mid + 1);
         int[] rightArray = Arrays.copyOfRange(array, mid + 1, right + 1);
 
+        // Merge the temporary arrays back into array[left..right]
         int i = 0, j = 0, k = left;
         while (i < n1 && j < n2) {
             if (leftArray[i] <= rightArray[j]) {
@@ -169,23 +195,93 @@ public class MergeSort {
             }
         }
 
+        // Copy remaining elements of leftArray[] if any
         while (i < n1) {
             array[k++] = leftArray[i++];
         }
 
+        // Copy remaining elements of rightArray[] if any
         while (j < n2) {
             array[k++] = rightArray[j++];
         }
     }
 }
 ```
-## Iteration and clarification from 
 
+## Iteration and clarification Claude 3.5 Sonnet's feedback on the inital merge sort implimentation of Cursor Small Language Model seen here. 
 
+### Updated Descriptive variable names and added comments to improve readability and clarity of the logic
+- The merge function was updated to mergeSortedHalves to better describe the functionality of the method. 
 
+```java
+import java.util.Arrays;
 
-## Review the AI's responses carefully.
-If you have any doubts or need further elaboration, pose additional questions to the AI.
+public class MergeSortClaudeAlterV1 {
+
+    /**
+     * Performs the merge sort algorithm on the specified array segment.
+     *
+     * @param array      The array to be sorted.
+     * @param startIndex The starting index of the array segment.
+     * @param endIndex   The ending index of the array segment.
+     */
+    public static void performMergeSort(int[] array, int startIndex, int endIndex) {
+        // Base case: if the segment has 1 or fewer elements, it's already sorted
+        if (startIndex < endIndex) {
+            int middleIndex = startIndex + (endIndex - startIndex) / 2; // Find the middle point (avoids integer
+                                                                        // overflow)
+
+            // Recursively sort the first half
+            performMergeSort(array, startIndex, middleIndex); // Left half
+
+            // Recursively sort the second half
+            performMergeSort(array, middleIndex + 1, endIndex); // Right half
+
+            // Merge the sorted halves
+            mergeSortedHalves(array, startIndex, middleIndex, endIndex);
+        }
+    }
+
+    /**
+     * Merges two sorted subarrays of the specified array.
+     *
+     * @param array       The array containing the subarrays.
+     * @param startIndex  The starting index of the left subarray.
+     * @param middleIndex The ending index of the left subarray and the middle
+     *                    point.
+     * @param endIndex    The ending index of the right subarray.
+     */
+    public static void mergeSortedHalves(int[] array, int startIndex, int middleIndex, int endIndex) {
+        int leftSize = middleIndex - startIndex + 1;
+        int rightSize = endIndex - middleIndex;
+
+        // Create temporary arrays
+        int[] leftArray = Arrays.copyOfRange(array, startIndex, middleIndex + 1);
+        int[] rightArray = Arrays.copyOfRange(array, middleIndex + 1, endIndex + 1);
+
+        // Merge the temporary arrays back into array[startIndex..endIndex]
+        int leftIndex = 0, rightIndex = 0, mergedIndex = startIndex;
+        while (leftIndex < leftSize && rightIndex < rightSize) {
+            if (leftArray[leftIndex] <= rightArray[rightIndex]) {
+                array[mergedIndex++] = leftArray[leftIndex++];
+            } else {
+                array[mergedIndex++] = rightArray[rightIndex++];
+            }
+        }
+
+        // Copy remaining elements of leftArray[] if any
+        while (leftIndex < leftSize) {
+            array[mergedIndex++] = leftArray[leftIndex++];
+        }
+
+        // Copy remaining elements of rightArray[] if any
+        while (rightIndex < rightSize) {
+            array[mergedIndex++] = rightArray[rightIndex++];
+        }
+    }
+}
+```
+
 Compile Your Submission:
 
 Capture screenshots of your prompts and the AI's answers.
