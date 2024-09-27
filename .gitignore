@@ -9,6 +9,15 @@ bin/
 *.ear
 *.db
 *.probe
+*.bin
+*.out
+*.log
+*.temp
+*.bak
+*.swp
+*.swo
+*.swn
+*.swo
 
 # IDE specific files
 .idea/
