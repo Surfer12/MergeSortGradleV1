@@ -1,20 +1,35 @@
-# CIS232 Assignment 9
+# CIS232 Assignment 9: Merge Sort and AI tool usage
 
+## Instructions
 
-## Merge Sort and AI tool usage
+<!-- Assignment 9
+Due Tuesday by 11:59pm Points 100 Submitting a file upload File Types jpeg, png, and pdf Available Sep 26 at 12am - Oct 1 at 11:59pm -->
 
-### Instructions
+## Tasks
 
-```
-Assignment 9
-Due Tuesday by 11:59pm Points 100 Submitting a file upload File Types jpeg, png, and pdf Available Sep 26 at 12am - Oct 1 at 11:59pm
+1. **Task 1: Merge Sort and AI tool usage:**
+   - Understand the Merge Sort Algorithm.
+   - Review the merge sort code from your slides to grasp its functionality.
+   - Identify the key components of the algorithm, including the merge function.
+   - Utilize an AI Tool for Explanation.
+   - Iterate and Seek Clarifications.
 
-Merge Sort and AI tool usage:
+2. **Task 2: Understand the Merge Sort Algorithm:**
+   - Review the merge sort code from your slides to grasp its functionality.
+   - Identify the key components of the algorithm, including the merge function.
 
-Understand the Merge Sort Algorithm:
+3. **Task 3: Utilize an AI Tool for Explanation:**
+   - Utilize an AI Tool for Explanation.
+   - Prompt the AI to explain the code and the merge function in detail.
+   - Ask the AI to elaborate on the time and space complexity of merge sort.
 
-Review the merge sort code from your slides to grasp its functionality. 
-Identify the key components of the algorithm, including the merge function.
+4. **Task 4: Iterate and Seek Clarifications:**
+   - Review the AI's responses carefully.
+   - If you have any doubts or need further elaboration, pose additional questions to the AI.
+
+5. **Task 5: Compile Your Submission:**
+   - Capture screenshots of your prompts and the AI's answers.
+   - Write a brief paragraph expressing your thoughts on the AI's explanations.
 
 ## Key components of the Merge Sort Algorithm
 
@@ -90,17 +105,22 @@ Identify the key components of the algorithm, including the merge function.
     }
 ```
 
-Utilize an AI Tool for Explanation: 
+## Utilize an AI Tool for Explanation: 
+
 ```
 Claude 3.5 Sonnet is utitlized for the refactoring of the inital merge sort code into a more readable and efficient format.
 Inital code was created by Cursor Small Language Model in the Cursor IDE. (link to cursor IDE)
 ```
-Prompt the AI to explain the code and the merge function in detail. 
+
+## Prompt the AI to explain the code and the merge function in detail. 
+
 ```
 #Prompt: 
 
 ```
-Ask the AI to elaborate on the time and space complexity of merge sort.
+
+## Ask the AI to elaborate on the time and space complexity of merge sort.
+
 ```
 #Regarding the time and space complexity:
 
@@ -117,9 +137,14 @@ Ask the AI to elaborate on the time and space complexity of merge sort.
 This implementation provides a good balance between efficiency and readability, making it suitable for educational purposes and practical use in sorting moderate-sized arrays.
 ```
 
-Iterate and Seek Clarifications:
+## Iterate and Seek Clarifications: Claude 3.5 Sonnet's feedback on inital merge sort implimentation seen here. 
 
-Review the AI's responses carefully.
+```java
+
+
+
+
+## Review the AI's responses carefully.
 If you have any doubts or need further elaboration, pose additional questions to the AI.
 Compile Your Submission:
 

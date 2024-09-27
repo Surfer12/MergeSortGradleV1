@@ -67,8 +67,3 @@ public class MergeSortClaudeAlterV1 {
     }
 }
 ```
-
-
-4. Changed the middle point calculation to `left + (right - left) / 2` to avoid potential integer overflow.
-5. In the `merge` method, used `Arrays.copyOfRange()` for creating temporary arrays, which is more concise and potentially more efficient.
-6. Simplified the merging loop by using post-increment operators, making the code more concise.
