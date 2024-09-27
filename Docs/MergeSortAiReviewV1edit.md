@@ -16,7 +16,7 @@ import java.util.Arrays;
 /**
  * Merge Sort implementation in Java.
  */
-public class MergeSort {
+public class MergeSortClaudeAlterV1 {
 
 
     /**
