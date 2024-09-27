@@ -1,24 +1,11 @@
 package mergesortgradlev1;
 
-import java.util.Arrays;
-
 /**
  * Merge Sort implementation in Java.
+ * Standard syntax i.e left, right, mid, n1, n2, i, j, k.
  */
+
 public class MergeSort {
-
-   /**
-    * Main method to execute the merge sort algorithm.
-    *
-    * @param args Command line arguments.
-    */
-   public static void main(String[] args) {
-      int[] array = { 38, 27, 43, 3, 9, 82, 10 }; // Example array
-      System.out.println("Unsorted array: " + Arrays.toString(array));
-      mergeSort(array, 0, array.length - 1);
-      System.out.println("Sorted array: " + Arrays.toString(array));
-   }
-
    /**
     * Sorts an array using the merge sort algorithm.
     *

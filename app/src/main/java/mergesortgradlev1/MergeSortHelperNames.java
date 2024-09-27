@@ -1,5 +1,10 @@
 package mergesortgradlev1;
 
+/**
+ * Merge Sort implementation in Java.
+ * Syntax altered to utilize descriptive method names, signatures, and comments
+ * as well as parameter names.
+ */
 public class MergeSortHelperNames {
 
     /**
