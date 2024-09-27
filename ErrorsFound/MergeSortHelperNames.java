@@ -1,4 +1,4 @@
-package mergesortgradlev1;
+package ErrorsFound;
 
 /**
  * Merge Sort implementation in Java.
