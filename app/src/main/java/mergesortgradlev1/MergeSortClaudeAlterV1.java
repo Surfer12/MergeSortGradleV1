@@ -17,9 +17,11 @@ public class MergeSortClaudeAlterV1 {
             int middleIndex = startIndex + (endIndex - startIndex) / 2; // Find the middle point (avoids integer
                                                                         // overflow)
 
-            // Recursively sort the first and second halves
-            performMergeSort(array, startIndex, middleIndex);
-            performMergeSort(array, middleIndex + 1, endIndex);
+            // Recursively sort the first half
+            performMergeSort(array, startIndex, middleIndex); // Left half
+
+            // Recursively sort the second half
+            performMergeSort(array, middleIndex + 1, endIndex); // Right half
 
             // Merge the sorted halves
             mergeSortedHalves(array, startIndex, middleIndex, endIndex);
