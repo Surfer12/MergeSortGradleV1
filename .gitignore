@@ -8,6 +8,7 @@ bin/
 *.war
 *.ear
 *.db
+*.probe
 
 # IDE specific files
 .idea/
