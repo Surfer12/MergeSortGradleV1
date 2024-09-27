@@ -1,0 +1,7 @@
+Write out the merge sort algorithm by hand
+
+Implement the merge sort algorithm in Java
+
+Hint base condition of Merge sort is : Divide the array until size of the array is less than or equal to 1. 
+
+
