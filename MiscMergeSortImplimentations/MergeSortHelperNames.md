@@ -1,6 +1,6 @@
+```java
 public class MergeSortHelperNames {
 
-   
 
     /**
      * Performs the merge sort algorithm on the specified array segment.
@@ -76,3 +76,4 @@ public class MergeSortHelperNames {
     }
 }
 
+```

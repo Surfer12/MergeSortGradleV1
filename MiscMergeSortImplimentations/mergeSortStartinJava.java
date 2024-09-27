@@ -1,3 +1,4 @@
+```java
 import java.util.Arrays;
 
 public class MergeSort {
@@ -35,3 +36,4 @@ public class MergeSort {
         }
     }
 }
+```

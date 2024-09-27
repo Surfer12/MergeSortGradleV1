@@ -1,4 +1,4 @@
-
+```java
 /**
  * Merge Sort implementation in Java.
  */
@@ -90,3 +90,4 @@ public class MergeSort {
         }
     }
 }
+```
