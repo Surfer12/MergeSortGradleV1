@@ -5,60 +5,62 @@ import java.util.Arrays;
 public class MergeSortClaudeAlterV1 {
 
     /**
-     * Sorts an array using the merge sort algorithm.
+     * Performs the merge sort algorithm on the specified array segment.
      *
-     * @param array The array to be sorted.
-     * @param left  The starting index of the array segment.
-     * @param right The ending index of the array segment.
+     * @param array      The array to be sorted.
+     * @param startIndex The starting index of the array segment.
+     * @param endIndex   The ending index of the array segment.
      */
-    public static void mergeSort(int[] array, int left, int right) {
+    public static void performMergeSort(int[] array, int startIndex, int endIndex) {
         // Base case: if the segment has 1 or fewer elements, it's already sorted
-        if (left < right) {
-            int mid = left + (right - left) / 2; // Find the middle point (avoids integer overflow)
+        if (startIndex < endIndex) {
+            int middleIndex = startIndex + (endIndex - startIndex) / 2; // Find the middle point (avoids integer
+                                                                        // overflow)
 
             // Recursively sort the first and second halves
-            mergeSort(array, left, mid);
-            mergeSort(array, mid + 1, right);
+            performMergeSort(array, startIndex, middleIndex);
+            performMergeSort(array, middleIndex + 1, endIndex);
 
             // Merge the sorted halves
-            merge(array, left, mid, right);
+            mergeSortedHalves(array, startIndex, middleIndex, endIndex);
         }
     }
 
     /**
-     * Merges two sorted subarrays of array[].
+     * Merges two sorted subarrays of the specified array.
      *
-     * @param array The array containing the subarrays.
-     * @param left  The starting index of the left subarray.
-     * @param mid   The ending index of the left subarray and the middle point.
-     * @param right The ending index of the right subarray.
+     * @param array       The array containing the subarrays.
+     * @param startIndex  The starting index of the left subarray.
+     * @param middleIndex The ending index of the left subarray and the middle
+     *                    point.
+     * @param endIndex    The ending index of the right subarray.
      */
-    public static void merge(int[] array, int left, int mid, int right) {
-        int n1 = mid - left + 1;
-        int n2 = right - mid;
+    public static void mergeSortedHalves(int[] array, int startIndex, int middleIndex, int endIndex) {
+        int leftSize = middleIndex - startIndex + 1;
+        int rightSize = endIndex - middleIndex;
 
         // Create temporary arrays
-        int[] leftArray = Arrays.copyOfRange(array, left, mid + 1);
-        int[] rightArray = Arrays.copyOfRange(array, mid + 1, right + 1);
+        int[] leftArray = Arrays.copyOfRange(array, startIndex, middleIndex + 1);
+        int[] rightArray = Arrays.copyOfRange(array, middleIndex + 1, endIndex + 1);
 
-        // Merge the temporary arrays back into array[left..right]
-        int i = 0, j = 0, k = left;
-        while (i < n1 && j < n2) {
-            if (leftArray[i] <= rightArray[j]) {
-                array[k++] = leftArray[i++];
+        // Merge the temporary arrays back into array[startIndex..endIndex]
+        int leftIndex = 0, rightIndex = 0, mergedIndex = startIndex;
+        while (leftIndex < leftSize && rightIndex < rightSize) {
+            if (leftArray[leftIndex] <= rightArray[rightIndex]) {
+                array[mergedIndex++] = leftArray[leftIndex++];
             } else {
-                array[k++] = rightArray[j++];
+                array[mergedIndex++] = rightArray[rightIndex++];
             }
         }
 
         // Copy remaining elements of leftArray[] if any
-        while (i < n1) {
-            array[k++] = leftArray[i++];
+        while (leftIndex < leftSize) {
+            array[mergedIndex++] = leftArray[leftIndex++];
         }
 
         // Copy remaining elements of rightArray[] if any
-        while (j < n2) {
-            array[k++] = rightArray[j++];
+        while (rightIndex < rightSize) {
+            array[mergedIndex++] = rightArray[rightIndex++];
         }
     }
 }

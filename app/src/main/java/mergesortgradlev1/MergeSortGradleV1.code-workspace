@@ -5,12 +5,14 @@
 		},
 		{
 			"path": "../../../../../../../InProgressPersonalNotes"
+		},
+		{
+			"path": "../../../../../../BigOTimeandSpace"
 		}
 	],
 	"settings": {
-		"java.project.sourcePaths": [
-			""
-		],
-		"java.compile.nullAnalysis.mode": "automatic"
+		"java.project.sourcePaths": [],
+		"java.compile.nullAnalysis.mode": "automatic",
+		"java.project.referencedLibraries": []
 	}
 }
