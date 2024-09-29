@@ -268,7 +268,7 @@ The ordering of subarrays in Merge Sort is a crucial aspect that ensures the fin
    - After the merge process, the segment of the main array that was being worked on is now fully sorted.
    - In our example, the final merged and sorted array would be [1, 2, 3, 4, 5, 6].
 
-### 7.2. Recursive Nature of Ordering
+### 7.2. Recursive Nature of Ordering 
 
 It's important to note that this merging process happens at various levels due to the recursive nature of Merge Sort:
 
@@ -279,8 +279,6 @@ It's important to note that this merging process happens at various levels due t
 3. **Root Level:** The final merge at the top level combines two large sorted halves of the entire array.
 
 This recursive structure ensures that by the time we reach the final merge, we're dealing with two large, sorted subarrays, making the final merge efficient and straightforward.
-
-### 7.3. Conclusion
 
 The ordering of subarrays in Merge Sort is achieved through a systematic comparison and merging process. This process, combined with the divide-and-conquer approach, allows Merge Sort to efficiently sort large datasets while maintaining stability. The algorithm's design ensures that at each step, we're always merging sorted subarrays, leading to a fully sorted array upon completion.
 
@@ -315,7 +313,8 @@ The ordering of subarrays in Merge Sort is achieved through a systematic compari
 
 The Merge Sort algorithm offers a consistent and efficient sorting mechanism with a time complexity of `O(n log n)` and a space complexity of `O(n)`. Its divide-and-conquer approach makes it highly effective for large datasets, and the algorithm's stability ensures that equal elements retain their original order post-sorting.
 
-## 9. Merge Sort for Linked Lists
+## 9 Merge Sort for Linked Lists 
+### 9.1. Basic Idea given by AI (Gemini 1.5 Pro)
 
 Merge Sort can also be implemented for linked lists. The basic idea is the same: divide the linked list into two halves, recursively sort each half, and then merge the sorted halves. However, the implementation details are slightly different due to the nature of linked lists.
 
@@ -340,6 +339,7 @@ The space complexity of Merge Sort for linked lists is still `O(n)` because it r
 
 **Note:** The implementation of Merge Sort for linked lists is more complex than for arrays, and it requires careful handling of pointers and node manipulation.
 
-## 9. Conclusion
+## 10. Conclusion
+### 10.1. Summary given by AI (Gemini 1.5 Pro)
 
-Merge Sort is a powerful and versatile sorting algorithm with a consistent time complexity of `O(n log n)` and a space complexity of `O(n)`. Its stability and efficiency make it a popular choice for various sorting tasks, including sorting large datasets, external sorting, and sorting linked lists.
+Merge Sort is a versatile sorting algorithm with a consistent time complexity of `O(n log n)` and a space complexity of `O(n)`. Its stability and efficiency make it a popular choice for various sorting tasks, including sorting large datasets, external sorting, and sorting linked lists.
