@@ -1,10 +1,15 @@
-# Explanation of Merge Sort Implementation and Its Complexities
+# Merge Sort Functionality and Key Components
 
-## Introduction to Merge Sort
+## General Overview of Merge Sort
 
-Merge Sort is a classic divide-and-conquer algorithm used for sorting arrays or lists. It works by recursively dividing the array into smaller subarrays until each subarray contains a single element (which is inherently sorted), and then merging these subarrays to produce new sorted subarrays until the entire array is sorted.
+- Merge Sort is a *divide-and-conquer* algorithm used for sorting arrays or lists. 
+- It works by recursively dividing the array into smaller subarrays 
+- This continues until each subarray contains a single element.
+- Then, it merges these subarrays to produce a newly sorted subarrays until the entire array is sorted.
 
-Merge Sort is renowned for its efficiency and predictable performance, making it a popular choice for various applications.
+- Merge Sort is renowned for its efficiency and predictable performance, making it a popular choice for various applications because it ensures that the sorting process is both *stable* and *consistent*. 
+- The stability of Merge Sort means that equal elements retain their original order, which is crucial for maintaining the relative order of equal elements in the sorted array.
+- The consistency of Merge Sort ensures that its performance is predictable and reliable, making it a valuable tool for sorting tasks in various applications. This is highlighted by its consistent time complexity of O(n log n), which is efficient and reliable for sorting large datasets.
 
 ## Key Components of the Merge Sort Algorithm
 

@@ -31,5 +31,6 @@ java {
 
 application {
     // Define the main class for the application.
-    mainClass = 'mergesortgradlev1.MergeSortWithLogging'
+    mainClass = 'mergesortgradlev1.MainApplication'
 }
+

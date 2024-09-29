@@ -4,8 +4,8 @@ import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class MergeSortWithLogging {
-    private static final Logger logger = Logger.getLogger(MergeSortWithLogging.class.getName());
+public class MergeSortWithEnhancedLogging {
+    private static final Logger logger = Logger.getLogger(MergeSortWithEnhancedLogging.class.getName());
 
     public static void performMergeSort(int[] array, int startIndex, int endIndex) {
         logger.log(Level.INFO, "Sorting array segment: {0}", Arrays.toString(Arrays.copyOfRange(array, startIndex, endIndex + 1)));
