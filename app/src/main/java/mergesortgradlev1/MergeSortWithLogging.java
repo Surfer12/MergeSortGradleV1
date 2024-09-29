@@ -1,14 +1,15 @@
 package mergesortgradlev1;
 
 import java.util.Arrays;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class MergeSortWithLogging {
     private static final Logger logger = Logger.getLogger(MergeSortWithLogging.class.getName());
 
     public static void performMergeSort(int[] array, int startIndex, int endIndex) {
-        logger.info("Sorting array segment: " + Arrays.toString(Arrays.copyOfRange(array, startIndex, endIndex + 1)));
-
+        logger.log(Level.INFO, "Sorting array segment: {0}", Arrays.toString(Arrays.copyOfRange(array, startIndex, endIndex + 1)));
+        
         if (startIndex < endIndex) {
             int middleIndex = startIndex + (endIndex - startIndex) / 2;
 
@@ -30,7 +31,7 @@ public class MergeSortWithLogging {
         int[] leftArray = Arrays.copyOfRange(array, startIndex, middleIndex + 1);
         int[] rightArray = Arrays.copyOfRange(array, middleIndex + 1, endIndex + 1);
 
-        logger.info("Merging left: " + Arrays.toString(leftArray) + " and right: " + Arrays.toString(rightArray));
+        logger.log(Level.INFO, "Merging left: {0} and right: {1}", new Object[]{Arrays.toString(leftArray), Arrays.toString(rightArray)});
 
         int leftIndex = 0, rightIndex = 0, mergedIndex = startIndex;
         while (leftIndex < leftSize && rightIndex < rightSize) {
@@ -49,13 +50,13 @@ public class MergeSortWithLogging {
             array[mergedIndex++] = rightArray[rightIndex++];
         }
 
-        logger.info("Merged array segment: " + Arrays.toString(Arrays.copyOfRange(array, startIndex, endIndex + 1)));
+        logger.log(Level.INFO, "Merged array segment: {0}", Arrays.toString(Arrays.copyOfRange(array, startIndex, endIndex + 1)));
     }
 
     public static void main(String[] args) {
-        int[] array = { 5, 2, 8, 1, 3 };
-        logger.info("Initial array: " + Arrays.toString(array));
+        int[] array = {5, 2, 8, 1, 3};
+        logger.log(Level.INFO, "Initial array: {0}", Arrays.toString(array));
         performMergeSort(array, 0, array.length - 1);
-        logger.info("Sorted array: " + Arrays.toString(array));
+        logger.log(Level.INFO, "Sorted array: {0}", Arrays.toString(array));
     }
 }
