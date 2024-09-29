@@ -52,26 +52,30 @@ Here's a step-by-step breakdown of how Merge Sort typically operates:
 ## 5. Code of Classic Merge Sort
 
 ```java
-public static void mergeSort(int[] array) {
-    if (array == null || array.length <= 1) {
-        return;
+
+
+public class MergeSort {
+    public void Sort(int[] array) {
+        if (array == null || array.length <= 1) {
+            return;
     }
     int[] tempArray = new int[array.length];
-    mergeSortHelper(array, tempArray, 0, array.length - 1);
+    performMergeSort(array, tempArray, 0, array.length - 1);
 }
 
-private static void mergeSortHelper(int[] array, int[] tempArray, int left, int right) {
+private void performMergeSort(int[] array, int[] tempArray, int left, int right) {
     if (left < right) {
         int middle = left + (right - left) / 2;
-        mergeSortHelper(array, tempArray, left, middle);
-        mergeSortHelper(array, tempArray, middle + 1, right);
+        performMergeSort(array, tempArray, left, middle);
+        performMergeSort(array, tempArray, middle + 1, right);
         merge(array, tempArray, left, middle, right);
     }
 }
 
-private static void merge(int[] array, int[] tempArray, int left, int middle, int right) {
-    for (int i = left; i <= right; i++) {
-        tempArray[i] = array[i];
+public class Merger {
+    public void merge(int[] array, int[] tempArray, int left, int middle, int right) {
+        for (int i = left; i <= right; i++) {
+            tempArray[i] = array[i];
     }
     int i = left;
     int j = middle + 1;
@@ -109,23 +113,16 @@ The `performMergeSort` method is the core of the Merge Sort algorithm. It recurs
  * Performs the merge sort algorithm on the specified array segment.
  *
  * @param array      The array to be sorted.
- * @param startIndex The starting index of the array segment.
- * @param endIndex   The ending index of the array segment.
+ * @param start The starting index of the array segment.
+ * @param end   The ending index of the array segment.
  */
-public static void performMergeSort(int[] array, int startIndex, int endIndex) {
-    // Base case: if the segment has 1 or fewer elements, it's already sorted
-    if (startIndex < endIndex) {
-        int middleIndex = startIndex + (endIndex - startIndex) / 2; // Find the middle point (avoids integer overflow)
-
-        // Recursively sort the first half
-        performMergeSort(array, startIndex, middleIndex); // Left half
-
-        // Recursively sort the second half
-        performMergeSort(array, middleIndex + 1, endIndex); // Right half
-
-        // Merge the sorted halves
-        mergeSortedHalves(array, startIndex, middleIndex, endIndex);
-    }
+public static void performMergeSort(int[] array, int start, int end) {
+    if (start >= end) return;
+    
+    int middle = start + (end - start) / 2;
+    performMergeSort(array, start, middle);
+    performMergeSort(array, middle + 1, end);
+    mergeSortedHalves(array, start, middle, end);
 }
 ```
 
@@ -255,7 +252,7 @@ The ordering of subarrays in Merge Sort is a crucial aspect that ensures the fin
    - After the merge process, the segment of the main array that was being worked on is now fully sorted.
    - In our example, the final merged and sorted array would be [1, 2, 3, 4, 5, 6].
 
-### 7.2. Recursive Nature of Ordering as Described by AI (Gemini 1.5 Pro)
+### 7.2. Recursive Nature of Ordering as Described by AI (Gemini 1.5 Flash 500k)
 
 It's important to note that this merging process happens at various levels due to the recursive nature of Merge Sort:
 
@@ -267,9 +264,45 @@ It's important to note that this merging process happens at various levels due t
 
 This recursive structure ensures that by the time we reach the final merge, we're dealing with two large, sorted subarrays, making the final merge efficient and straightforward.
 
-The ordering of subarrays in Merge Sort is achieved through a systematic comparison and merging process. This process, combined with the divide-and-conquer approach, allows Merge Sort to efficiently sort large datasets while maintaining stability. The algorithm's design ensures that at each step, we're always merging sorted subarrays, leading to a fully sorted array upon completion.
+### 7.3. Parallel Merge Sort as Described by AI (Claude 3.5 Sonnet 200k)
 
-### 7.3. Example Breakdown as Described by AI (Gemini 1.5 Pro)
+We can add parallel processing to potentially improve performance for large arrays:
+
+```java
+import java.util.concurrent.RecursiveAction;
+import java.util.concurrent.ForkJoinPool;
+
+public class ParallelMergeSort extends RecursiveAction {
+    private int[] array;
+    private int start, end;
+    private static final int THRESHOLD = 1000;
+
+    public ParallelMergeSort(int[] array, int start, int end) {
+        this.array = array;
+        this.start = start;
+        this.end = end;
+    }
+
+    @Override
+    protected void compute() {
+        if (end - start <= THRESHOLD) {
+            MergeSort.performMergeSort(array, start, end);
+        } else {
+            int middle = start + (end - start) / 2;
+            ParallelMergeSort left = new ParallelMergeSort(array, start, middle);
+            ParallelMergeSort right = new ParallelMergeSort(array, middle + 1, end);
+            invokeAll(left, right);
+            new Merger().merge(array, start, middle, end);
+        }
+    }
+
+    public static void parallelSort(int[] array) {
+        ForkJoinPool.commonPool().invoke(new ParallelMergeSort(array, 0, array.length - 1));
+    }
+}
+```
+
+### 7.3. Example Breakdown as Described by AI (Gemini 1.5 Flash 500k)
 
 Let's say we have the following array:
 
@@ -402,28 +435,66 @@ The space complexity of Merge Sort for linked lists is still `O(n)` because it r
 
 Merge Sort is a versatile sorting algorithm with a consistent time complexity of `O(n log n)` and a space complexity of `O(n)`. Its stability and efficiency make it a popular choice for various sorting tasks, including sorting large datasets, external sorting, and sorting linked lists.
 
-# 11. Thoughts on the AI's Explanations
+# 11. Reflections on AI-Assisted Learning
 
-Preface: I do not use general AI's based in web browsers because they are not as accurate as a using a local AI model, so there are no screenshots of web browser AI's.
-Therefore, the AI model's responses given highlighted in this document are explanations that are derived from the documentation and specified constraints, requests, as well as given examples and best practices that i update during each project and assignment as well as requests that the specificed AI follow for each request to any of the available AI's.
-As an example. I use the Java JDK 22 Docs; Core Libraries API Specification Docs, as well as the 22 Language Specification Doc. This in addition to the JVM spec 22, Sequenced Collections API Specification 22, the the Java Collections API docs ensure I follow and referene documentation as well as best practices that are relevant to the request and project throughout. 
-This use of local indexing and processing allows for more accurate and reliable explanations and responses to be given by the AI model as well as allowing for the use of custom tools that are not available to web browser based AI's.
-This enhances the accuracy and reliability of the explanations and responses provided by the AI model as well as tailors the response to the specific requirements of the requests. 
+## 11.1 Methodology and Tools
 
-Thoughts on the context window size and resulting responses: 
+- **AI Model Selection:** Local AI models are preferred over web-based alternatives for improved accuracy.
+- **Documentation Sources:** Utilize comprehensive Java documentation, including:
+  - JDK 22 Docs
+  - Core Libraries API Specification
+  - Language Specification
+  - JVM Specification
+  - Sequenced Collections API Specification
+  - Java Collections API docs
+- **Custom Indexing:** Employ local indexing and processing for tailored, project-specific responses.
 
-When using shorter context windowed models like Cursor-Small the responses are generally on par with the web browser based AI's.
-However, when using the larger context windowed models like Gemini Flash 1.5 (500k)the responses are consistently better and more accurate than those of the web browser based AI's.
-Especially considering that Flash 1.5 is extreamly fast, as well uses a custom indexing system within the request to specify the code it should use to generate the response, as well as allowing for the use of custom tools like a Smart Reranker and a Smart Reranker Filter to optimize the response to the specific requirements of the request.
+## 11.2 Comparative Analysis of AI Models
 
-Thoughts on the AI's responses: 
-Considering the considerable effort to ensure that the context window is optimized for the request and that the AI's responses are based on the specified constraints, requests, as well as given examples and best practices that are updated during each project and assignment I find that the AI's responses are spectacular, especially when analyzing algorithms.
+- **Short Context Window Models (e.g., Cursor-Small):**
+  - Performance comparable to web-based AI assistants
+- **Large Context Window Models (e.g., Gemini Flash 1.5 500k):**
+  - Consistently superior performance
+  - Faster response times
+  - Custom indexing capabilities
+  - Advanced tools like Smart Reranker and Smart Reranker Filter
 
-In addition, the AI's responses are always better than the responses given by the web browser based AI's because they follow constraints given on hand and act as a documentation refrence tool as well as a 'tutor' when stuck on a concept.
+## 11.3 Effectiveness of AI Responses
 
-The constraints as well as the examples and best practices are invaluable as they make the learning process of difficult concepts easier to understand and follow without complicating the explanation with unnecessary details or other aspects that are not relevant to the request.
+- **Quality:** Responses are consistently high-quality, particularly for algorithm analysis.
+- **Adherence to Guidelines:** AI follows specified constraints and best practices.
+- **Learning Support:** Acts as both a documentation reference and a conceptual tutor.
+- **Clarity:** Explanations are tailored to be easily understandable without extraneous details.
+
+## 11.4 Benefits of the Approach
+
+1. Enhanced accuracy and reliability of explanations
+2. Customized responses aligned with project requirements
+3. Streamlined learning process for complex concepts
+4. Consistent adherence to best practices and documentation standards
+
+This refined approach to AI-assisted learning leverages the strengths of local models and comprehensive documentation to provide a superior educational experience in software development and algorithm analysis.
 
 # Screenshots
 
 ![alt text](image-2.png)
 ![alt text](image.png)
+
+# Misc
+
+```
+4. Relativity to Internship Setting:
+
+In an internship setting, you might need to integrate Merge Sort into a larger system. For example, as part of a RESTful API:
+
+```java
+@RestController
+@RequestMapping("/api/sort")
+public class SortController {
+    @PostMapping("/merge")
+    public ResponseEntity<int[]> mergeSort(@RequestBody int[] array) {
+        MergeSort.sort(array);
+        return ResponseEntity.ok(array);
+    }
+}
+```
