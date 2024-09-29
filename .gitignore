@@ -43,3 +43,6 @@ Thumbs.db
 *.temp
 *.bak
 *.swp
+.gradle/8.8/executionHistory/executionHistory.bin
+.gradle/8.8/fileHashes/resourceHashesCache.bin
+.gradle/buildOutputCleanup/outputFiles.bin
