@@ -5,7 +5,6 @@
 Due Tuesday by 11:59pm Points 100 Submitting a file upload File Types jpeg, png, and pdf Available Sep 26 at 12am - Oct 1 at 11:59pm -->
 
 TODO :
-Import interesting information given by o1 during analysis.
 Remove unneccesary information from the file like 
 
 ## Tasks
@@ -37,6 +36,20 @@ Remove unneccesary information from the file like
 # Explanation of Merge Sort Implementation and Its Complexities
 
 ## Introduction to Merge Sort
+
+### PsuedoCode of mergesort 
+
+```
+Divide the array into two halves
+
+Merge sort on the first part of the array
+
+Merge sort on the second part of the array
+
+Merge the two halves
+
+Return the sorted array
+```
 
 Merge Sort is a classic divide-and-conquer algorithm used for sorting arrays or lists. It works by recursively dividing the array into smaller subarrays until each subarray contains a single element (which is inherently sorted), and then merging these subarrays to produce new sorted subarrays until the entire array is sorted.
 
@@ -250,21 +263,24 @@ The Merge Sort algorithm offers a consistent and efficient sorting mechanism wit
     }
 ```
 
+
+
+## Ask the AI to elaborate on the time and space complexity of merge sort.
+
 ## Utilize an AI Tool for Explanation: 
 
 ```
-Claude 3.5 Sonnet is utitlized for the refactoring of the inital merge sort code into a more readable and efficient format.
+o1 mini by OpenAI is utitlized for the refactoring of the inital merge sort code into a more readable and efficient format.
 Inital code was created by Cursor Small Language Model in the Cursor IDE.
 ```
 
 ## Prompt the AI to explain the code and the merge function in detail. 
 
 ```
-#Prompt: 
+Given Prompt:  "Identify the key components of the algorithm, including the merge function.  Explain the code and the merge function in detail.
+elaborate on the time and space complexity of merge sort." 
 
 ```
-
-## Ask the AI to elaborate on the time and space complexity of merge sort.
 
 ```
 #Regarding the time and space complexity:
