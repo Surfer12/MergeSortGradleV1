@@ -37,6 +37,3 @@ application {
     // Define the main class for the application.
     mainClass = 'mergesortgradlev1.App'
 }
-
-// Apply the common tasks from the external file
-apply from: 'common-tasks.gradle'
