@@ -8,6 +8,47 @@
 - Then, it merges these subarrays to produce a newly sorted subarrays until the entire array is sorted.
 - Merge Sort is renowned for its efficiency and predictable performance, making it a popular choice for various applications because it ensures that the sorting process is both *stable* and *consistent*. 
 
+
+## Code of Classic Merge Sort
+
+```java
+public static void mergeSort(int[] array) {
+    if (array == null || array.length <= 1) {
+        return;
+    }
+    int[] tempArray = new int[array.length];
+    mergeSortHelper(array, tempArray, 0, array.length - 1);
+}
+
+private static void mergeSortHelper(int[] array, int[] tempArray, int left, int right) {
+    if (left < right) {
+        int middle = left + (right - left) / 2;
+        mergeSortHelper(array, tempArray, left, middle);
+        mergeSortHelper(array, tempArray, middle + 1, right);
+        merge(array, tempArray, left, middle, right);
+    }
+}
+
+private static void merge(int[] array, int[] tempArray, int left, int middle, int right) {
+    for (int i = left; i <= right; i++) {
+        tempArray[i] = array[i];
+    }
+    int i = left;
+    int j = middle + 1;
+    int k = left;
+    while (i <= middle && j <= right) {
+        if (tempArray[i] <= tempArray[j]) {
+            array[k++] = tempArray[i++];
+        } else {
+            array[k++] = tempArray[j++];
+        }
+    }
+    while (i <= middle) {
+        array[k++] = tempArray[i++];  
+    }
+}
+```
+
 ### Key Characteristics
 - **Stable**: Maintains the relative order of equal elements.
 - **Consistent Performance**: O(n log n) time complexity for all cases.
@@ -16,7 +57,7 @@
 - The stability of Merge Sort means that equal elements retain their original order, which is crucial for maintaining the relative order of equal elements in the sorted array.
 - The consistency of Merge Sort ensures that its performance is predictable and reliable, making it a valuable tool for sorting tasks in various applications. This is highlighted by its consistent time complexity of O(n log n), which is efficient and reliable for sorting large datasets.
 
-## Key Components of the Merge Sort Algorithm
+## Key Components of the Merge Sort Algorithm with provided analysis and alterations 
 
 ### 1. `performMergeSort` Method
 
@@ -63,7 +104,7 @@ The `mergeSortedHalves` method is responsible for merging two sorted subarrays i
 
 ### `mergeSortedHalves` Method
 
-```java:app/src/main/java/mergesortgradlev1/MergeSortClaudeAlterV1.java
+```java
 /**
  * Merges two sorted subarrays of the specified array.
  *
@@ -72,6 +113,7 @@ The `mergeSortedHalves` method is responsible for merging two sorted subarrays i
  * @param middleIndex The ending index of the left subarray and the middle point.
  * @param endIndex    The ending index of the right subarray.
  */
+
 public static void mergeSortedHalves(int[] array, int startIndex, int middleIndex, int endIndex) {
     int leftSize = middleIndex - startIndex + 1;
     int rightSize = endIndex - middleIndex;
@@ -100,7 +142,7 @@ public static void mergeSortedHalves(int[] array, int startIndex, int middleInde
         array[mergedIndex++] = rightArray[rightIndex++];
     }
 }
-
+```
 **Explanation:**
 
 - **Determining Sizes:** The method calculates the sizes of the left and right subarrays (`leftSize` and `rightSize`) based on the provided indices.
@@ -144,52 +186,6 @@ public static void mergeSortedHalves(int[] array, int startIndex, int middleInde
 
 The Merge Sort algorithm offers a consistent and efficient sorting mechanism with a time complexity of `O(n log n)` and a space complexity of `O(n)`. Its divide-and-conquer approach makes it highly effective for large datasets, and the algorithm's stability ensures that equal elements retain their original order post-sorting.
 
-
-## Pseudocode of Merge Sort Recursive Method
-
-The following pseudocode outlines the steps involved in the Merge Sort algorithm:
-
-```
-1. If the array has 1 or fewer elements, return the array as it is already sorted.
-2. Find the middle index of the array.
-3. Create a left array and a right array from the original array.
-4. Recursively apply merge sort on the left array.
-5. Recursively apply merge sort on the right array.
-6. Merge the two sorted halves.
-```
-
-## PsuedoCode of classicly varaiable naming for Merge Recursive Method
-``` 
-1. Initalize variables i, j, k
-2. While i is less than the length of the left array and j is less than the length of the right array
-3. If the element at the ith index of the left array is less than or equal to the element at the jth index of the right array
-4. Set the element at the kth index of the original array to the element at the ith index of the left array
-5. Increment i by 1
-6. Else
-7. Set the element at the kth index of the original array to the element at the jth index of the right array
-8. Increment j by 1
-9. Increment k by 1 
-10. While i is less than the length of the left array
-11. Set the element at the kth index of the original array to the element at the ith index of the left array
-12. Increment i by 1
-13. Increment k by 1
-14. While j is less than the length of the right array
-15. Set the element at the kth index of the original array to the element at the jth index of the right array
-16. Increment j by 1
-17. Increment k by 1  
-```
-### PsuedoCode of Merge Sort with descriptive variable naming
-```
-
-
-
-
-
-
-
-
-```
-## Detailed Code Explanation
 
 ### `performMergeSort` Method
 
