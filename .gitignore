@@ -1,14 +1,10 @@
 # Gradle files
-.gradle/
 build/
 out/
 bin/
 *.class
-*.jar
 *.war
 *.ear
-*.db
-*.probe
 *.bin
 *.out
 *.log
@@ -24,12 +20,6 @@ bin/
 *.iml
 *.ipr
 *.iws
-.vscode/
-*.code-workspace
-
-# Cursor IDE specific files
-*.cursorrules
-*.cursorsettings
 
 # OS generated files
 .DS_Store
@@ -43,8 +33,3 @@ Thumbs.db
 *.temp
 *.bak
 *.swp
-.gradle/8.8/executionHistory/executionHistory.bin
-.gradle/8.8/fileHashes/resourceHashesCache.bin
-.gradle/buildOutputCleanup/outputFiles.bin
-.gradle/file-system.probe
-.gradle/file-system.probe
