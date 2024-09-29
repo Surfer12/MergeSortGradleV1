@@ -20,7 +20,7 @@ The `mergeSortedHalves` method is responsible for merging two sorted subarrays i
 
 ### `performMergeSort` Method
 
-```java:app/src/main/java/mergesortgradlev1/MergeSortClaudeAlterV1.java
+```java
 /**
  * Performs the merge sort algorithm on the specified array segment.
  *
