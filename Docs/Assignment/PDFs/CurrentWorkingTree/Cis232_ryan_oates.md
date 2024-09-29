@@ -491,8 +491,7 @@ This shows the merged sorted linked list.
 3. **Efficiency of Merging**:
    - The traversal method used in linked lists allows for efficient merging since we can adjust pointers rather than copying data. This reduces the overhead associated with memory allocation and copying, making the process faster and more memory-efficient.
    - The recursive nature of Merge Sort means that as we break down the list, we can merge back together in a way that respects the order of elements, leveraging the linked list's structure to maintain efficiency.
-
-In conclusion, the traversal method required for linked lists complements the recursive approach of Merge Sort, allowing for efficient merging without the need for random access, which is inherently more complex and resource-intensive in this context.
+   - The traversal method required for linked lists complements the recursive approach of Merge Sort, allowing for efficient merging without the need for random access, which is inherently more complex and resource-intensive in this context.
 
 
 - **Traversal Requirement**: In a linked list, each element (node) contains a reference (or pointer) to the next node. To access a specific element, we must start from the head of the list and follow the pointers sequentially until we reach the desired node. This traversal is inherently linear in time complexity, O(n), as opposed to the constant time complexity, O(1), for accessing elements in an array.
@@ -589,18 +588,24 @@ This method efficiently merges two sorted linked lists by sequentially comparing
 
 
 ## 8. Time and Space Complexity of Merge Sort
+The time complexity of Merge Sort is analyzed in two main phases: the divide phase and the conquer phase (merging). Here’s a detailed breakdown:
 
-### 8.1. Time Complexity: **O(n log n)** as Described by AI (Gemini 1.5 Flash 500k)
+### 1. Divide Phase
+- **Recursive Division**: Merge Sort works by recursively dividing the array into two halves. This division continues until each subarray contains only one element, which is inherently sorted.
+- **Depth of Recursion**: The depth of the recursion tree is `log n`, where `n` is the number of elements in the array. This is because each division reduces the size of the problem by half. For example, starting with `n` elements, the first division results in `n/2`, the second in `n/4`, and so on, until we reach 1 element. The number of times you can divide `n` by 2 until you reach 1 is `log n`.
 
-- **Divide Phase:** 
-  - The array is recursively divided into two halves until each subarray has only one element.
-  - The depth of the recursion tree is `log n`, where `n` is the number of elements in the array.
+### 2. Conquer Phase (Merging)
+- **Merging Process**: After the array has been divided into single-element subarrays, the merging process begins. During merging, pairs of sorted subarrays are combined into larger sorted subarrays.
+- **Linear Time Complexity**: The merging process takes linear time `O(n)` at each level of the recursion. This is because every element in the array must be examined and placed into the correct position in the merged array. For instance, if you have two sorted subarrays of size `k` each, merging them requires comparing each element, resulting in `k + k = 2k` comparisons, which is linear with respect to the total number of elements being merged.
 
-- **Conquer Phase (Merging):**
-  - At each level of recursion, the merging process takes linear time `O(n)` since each element is compared and merged.
-  
-- **Overall Complexity:**
-  - Combining both phases, the total time complexity becomes `O(n log n)` for all cases (best, average, and worst).
+### 3. Overall Complexity
+- **Combining Phases**: Since the divide phase contributes `log n` levels of recursion and the merging process at each level takes `O(n)` time, the overall time complexity can be expressed as: `O(n)(for merging) * O(log n)(for recursion depth) = O(n log n)`.
+
+- **Consistency Across Cases**: This time complexity of `O(n log n)` holds true for all cases: best, average, and worst. Unlike some sorting algorithms (like Quick Sort), which can degrade to `O(n^2)` in the worst case, Merge Sort maintains its efficiency due to its consistent divide-and-conquer approach.
+
+### Conclusion
+In summary, the time complexity of Merge Sort is `O(n log n)` because it efficiently divides the array into smaller parts and merges them back together in a systematic manner, ensuring that the sorting process is both stable and predictable across different scenarios. This makes Merge Sort particularly suitable for large datasets and applications requiring consistent performance.
+
 
 ### 8.2. Space Complexity: **O(n)** as Described by AI (Gemini 1.5 Flash 500k)
 
@@ -645,16 +650,16 @@ The space complexity of Merge Sort for linked lists is still `O(n)` because it r
 
 **Note:** The implementation of Merge Sort for linked lists is more complex than for arrays, and it requires careful handling of pointers and node manipulation.
 
-## 10. Conclusion
+## 10. Conclusion 
 ### 10.1. Summary as Described by AI (Gemini 1.5 Flash 500k)
 
 Merge Sort is a versatile sorting algorithm with a consistent time complexity of `O(n log n)` and a space complexity of `O(n)`. Its stability and efficiency make it a popular choice for various sorting tasks, including sorting large datasets, external sorting, and sorting linked lists.
 
-# 11. Reflections on AI-Assisted Learning
+# 11. Reflections on AI-Assisted Learning 
 
 ## 11.1 Methodology and Tools
 
-- **AI Model Selection:** Local AI models are preferred over web-based alternatives for improved accuracy.
+- **AI Model Selection:** Local AI models are preferred over web-based alternatives for improved accuracy. 
 - **Documentation Sources:** Utilize comprehensive Java documentation, including:
   - JDK 22 Docs
   - Core Libraries API Specification
@@ -667,11 +672,11 @@ Merge Sort is a versatile sorting algorithm with a consistent time complexity of
 ## 11.2 Comparative Analysis of AI Models
 
 - **Short Context Window Models (e.g., Cursor-Small):**
-  - Performance comparable to web-based AI assistants
+  - Best for generating short, concise changes to code, but less reliable for complex or nuanced explanations or questions and analysis.
 - **Large Context Window Models (e.g., Gemini Flash 1.5 500k):**
-  - Consistently superior performance
-  - Faster response times
-  - Custom indexing capabilities
+  - Consistently superior performance for long and complex papers i.e Analysis of Merge Sort
+  - Faster response times, accuracy and reliability of consistency across multiple queries
+  - Custom varaible indexing capabilities
   - Advanced tools like Smart Reranker and Smart Reranker Filter
 
 ## 11.3 Effectiveness of AI Responses
