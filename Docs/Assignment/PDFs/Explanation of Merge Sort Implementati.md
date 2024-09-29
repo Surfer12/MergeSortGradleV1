@@ -6,8 +6,13 @@
 - It works by recursively dividing the array into smaller subarrays 
 - This continues until each subarray contains a single element.
 - Then, it merges these subarrays to produce a newly sorted subarrays until the entire array is sorted.
-
 - Merge Sort is renowned for its efficiency and predictable performance, making it a popular choice for various applications because it ensures that the sorting process is both *stable* and *consistent*. 
+
+### Key Characteristics
+- **Stable**: Maintains the relative order of equal elements.
+- **Consistent Performance**: O(n log n) time complexity for all cases.
+- **External Sorting**: Efficient for large datasets that do not fit into memory.
+
 - The stability of Merge Sort means that equal elements retain their original order, which is crucial for maintaining the relative order of equal elements in the sorted array.
 - The consistency of Merge Sort ensures that its performance is predictable and reliable, making it a valuable tool for sorting tasks in various applications. This is highlighted by its consistent time complexity of O(n log n), which is efficient and reliable for sorting large datasets.
 
@@ -20,6 +25,51 @@ The `performMergeSort` method is the core of the Merge Sort algorithm. It recurs
 ### 2. `mergeSortedHalves` Method
 
 The `mergeSortedHalves` method is responsible for merging two sorted subarrays into a single sorted segment. It ensures that the combined array maintains the sorted order.
+
+
+## Pseudocode of Merge Sort Recursive Method
+
+The following pseudocode outlines the steps involved in the Merge Sort algorithm:
+
+```
+1. If the array has 1 or fewer elements, return the array as it is already sorted.
+2. Find the middle index of the array.
+3. Create a left array and a right array from the original array.
+4. Recursively apply merge sort on the left array.
+5. Recursively apply merge sort on the right array.
+6. Merge the two sorted halves.
+```
+
+## PsuedoCode of classicly varaiable naming for Merge Recursive Method
+``` 
+1. Initalize variables i, j, k
+2. While i is less than the length of the left array and j is less than the length of the right array
+3. If the element at the ith index of the left array is less than or equal to the element at the jth index of the right array
+4. Set the element at the kth index of the original array to the element at the ith index of the left array
+5. Increment i by 1
+6. Else
+7. Set the element at the kth index of the original array to the element at the jth index of the right array
+8. Increment j by 1
+9. Increment k by 1 
+10. While i is less than the length of the left array
+11. Set the element at the kth index of the original array to the element at the ith index of the left array
+12. Increment i by 1
+13. Increment k by 1
+14. While j is less than the length of the right array
+15. Set the element at the kth index of the original array to the element at the jth index of the right array
+16. Increment j by 1
+17. Increment k by 1  
+```
+### PsuedoCode of Merge Sort with descriptive variable naming
+```
+
+
+
+
+
+
+
+
 
 ## Detailed Code Explanation
 
