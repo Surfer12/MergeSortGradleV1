@@ -423,4 +423,7 @@ In addition, the AI's responses are always better than the responses given by th
 
 The constraints as well as the examples and best practices are invaluable as they make the learning process of difficult concepts easier to understand and follow without complicating the explanation with unnecessary details or other aspects that are not relevant to the request.
 
+# Screenshots
 
+![alt text](image-2.png)
+![alt text](image.png)
