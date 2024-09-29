@@ -1,4 +1,4 @@
-# CIS232 Assignment 9: Merge Sort and Sorting Algorithm Analysis
+@workspace /new Refrence my #file:settings.gradle , #file:build.gradle as well as other relavent gradle settings and project specifications and develop gradle tasks that match the workflow and other associated files and their matching tasks like reporting problems etc to create independent tasks i can utilize to streamline and specificy my workflow# CIS232 Assignment 9: Merge Sort and Sorting Algorithm Analysis
 
 ## Introduction
 
