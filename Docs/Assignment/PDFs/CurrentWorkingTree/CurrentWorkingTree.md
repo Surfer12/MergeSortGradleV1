@@ -1,16 +1,3 @@
-The document you provided is a good overview of Merge Sort, but it could be improved. Here are some suggestions:
-
-1. **Code Examples:** The code examples are good, but they could be more consistent. The `mergeSort` method is presented in a different format than the `performMergeSort` and `mergeSortedHalves` methods. Consider using a consistent format for all code examples.
-
-2. **Clarity:** The explanation of the `mergeSortedHalves` method could be clearer. It's not immediately obvious why the `leftSize` and `rightSize` variables are calculated the way they are. Consider adding a sentence or two to explain this.
-
-3. **Completeness:** The document mentions that Merge Sort is well-suited for linked lists, but it doesn't provide any code examples or explanations for how this would be implemented. Consider adding a section on Merge Sort for linked lists.
-
-4. **Accuracy:** The document states that Merge Sort is "well-suited for linked lists and can be implemented in a way that requires minimal additional space." While it's true that Merge Sort can be implemented for linked lists, it's not necessarily true that it requires minimal additional space. The space complexity of Merge Sort for linked lists is still `O(n)`, as it requires temporary storage for the merged sublists.
-
-5. **Organization:** The document could be better organized. Consider breaking it down into more sections with clear headings and subheadings.
-
-Here's a revised version of the document with the suggested improvements:
 ```markdown
 # Merge Sort Functionality and Key Components
 
@@ -268,7 +255,7 @@ The ordering of subarrays in Merge Sort is a crucial aspect that ensures the fin
    - After the merge process, the segment of the main array that was being worked on is now fully sorted.
    - In our example, the final merged and sorted array would be [1, 2, 3, 4, 5, 6].
 
-### 7.2. Recursive Nature of Ordering 
+### 7.2. Recursive Nature of Ordering as Described by AI (Gemini 1.5 Pro)
 
 It's important to note that this merging process happens at various levels due to the recursive nature of Merge Sort:
 
@@ -282,9 +269,80 @@ This recursive structure ensures that by the time we reach the final merge, we'r
 
 The ordering of subarrays in Merge Sort is achieved through a systematic comparison and merging process. This process, combined with the divide-and-conquer approach, allows Merge Sort to efficiently sort large datasets while maintaining stability. The algorithm's design ensures that at each step, we're always merging sorted subarrays, leading to a fully sorted array upon completion.
 
+### 7.3. Example Breakdown as Described by AI (Gemini 1.5 Pro)
+
+Let's say we have the following array:
+
+```
+[38, 27, 43, 3, 9, 82, 10]
+```
+
+After the recursive division, we have two sorted subarrays:
+
+```
+leftArray: [27, 38, 43]
+rightArray: [3, 9, 10, 82]
+```
+
+Now, the `mergeSortedHalves` method will merge these two subarrays back into the original array.
+
+**Step 1: Initialization**
+
+- `leftIndex = 0`, `rightIndex = 0`, `mergedIndex = 0`
+
+**Step 2: Merging Loop**
+
+- **Iteration 1:**
+    - `leftArray[leftIndex] = 27`, `rightArray[rightIndex] = 3`
+    - `27 > 3`, so `array[mergedIndex++] = rightArray[rightIndex++]`
+    - `array[0] = 3`, `leftIndex = 0`, `rightIndex = 1`, `mergedIndex = 1`
+
+- **Iteration 2:**
+    - `leftArray[leftIndex] = 27`, `rightArray[rightIndex] = 9`
+    - `27 > 9`, so `array[mergedIndex++] = rightArray[rightIndex++]`
+    - `array[1] = 9`, `leftIndex = 0`, `rightIndex = 2`, `mergedIndex = 2`
+
+- **Iteration 3:**
+    - `leftArray[leftIndex] = 27`, `rightArray[rightIndex] = 10`
+    - `27 > 10`, so `array[mergedIndex++] = rightArray[rightIndex++]`
+    - `array[2] = 10`, `leftIndex = 0`, `rightIndex = 3`, `mergedIndex = 3`
+
+- **Iteration 4:**
+    - `leftArray[leftIndex] = 27`, `rightArray[rightIndex] = 82`
+    - `27 < 82`, so `array[mergedIndex++] = leftArray[leftIndex++]`
+    - `array[3] = 27`, `leftIndex = 1`, `rightIndex = 3`, `mergedIndex = 4`
+
+- **Iteration 5:**
+    - `leftArray[leftIndex] = 38`, `rightArray[rightIndex] = 82`
+    - `38 < 82`, so `array[mergedIndex++] = leftArray[leftIndex++]`
+    - `array[4] = 38`, `leftIndex = 2`, `rightIndex = 3`, `mergedIndex = 5`
+
+- **Iteration 6:**
+    - `leftArray[leftIndex] = 43`, `rightArray[rightIndex] = 82`
+    - `43 < 82`, so `array[mergedIndex++] = leftArray[leftIndex++]`
+    - `array[5] = 43`, `leftIndex = 3`, `rightIndex = 3`, `mergedIndex = 6`
+
+**Step 3: Handling Remaining Elements**
+
+- `leftIndex = 3`, `rightIndex = 3`, `mergedIndex = 6`
+- `leftIndex >= leftSize`, so the loop terminates.
+- `rightIndex < rightSize`, so the remaining element in `rightArray` is copied to `array`:
+    - `array[6] = 82`
+
+**Final Result:**
+
+The merged array is now:
+
+```
+[3, 9, 10, 27, 38, 43, 82]
+```
+
+This is the sorted version of the original array.
+              
+
 ## 8. Time and Space Complexity of Merge Sort
 
-### 8.1. Time Complexity: **O(n log n)**
+### 8.1. Time Complexity: **O(n log n)** as Described by AI (Gemini 1.5 Flash 500k)
 
 - **Divide Phase:** 
   - The array is recursively divided into two halves until each subarray has only one element.
@@ -296,7 +354,7 @@ The ordering of subarrays in Merge Sort is achieved through a systematic compari
 - **Overall Complexity:**
   - Combining both phases, the total time complexity becomes `O(n log n)` for all cases (best, average, and worst).
 
-### 8.2. Space Complexity: **O(n)**
+### 8.2. Space Complexity: **O(n)** as Described by AI (Gemini 1.5 Flash 500k)
 
 - **Auxiliary Space for Temporary Arrays:**
   - The algorithm uses temporary arrays (`leftArray` and `rightArray`) to store the divided segments during the merge process.
@@ -314,7 +372,7 @@ The ordering of subarrays in Merge Sort is achieved through a systematic compari
 The Merge Sort algorithm offers a consistent and efficient sorting mechanism with a time complexity of `O(n log n)` and a space complexity of `O(n)`. Its divide-and-conquer approach makes it highly effective for large datasets, and the algorithm's stability ensures that equal elements retain their original order post-sorting.
 
 ## 9 Merge Sort for Linked Lists 
-### 9.1. Basic Idea given by AI (Gemini 1.5 Pro)
+### 9.1. Basic Idea as Described by AI (Gemini 1.5 Flash 500k)
 
 Merge Sort can also be implemented for linked lists. The basic idea is the same: divide the linked list into two halves, recursively sort each half, and then merge the sorted halves. However, the implementation details are slightly different due to the nature of linked lists.
 
@@ -340,6 +398,34 @@ The space complexity of Merge Sort for linked lists is still `O(n)` because it r
 **Note:** The implementation of Merge Sort for linked lists is more complex than for arrays, and it requires careful handling of pointers and node manipulation.
 
 ## 10. Conclusion
-### 10.1. Summary given by AI (Gemini 1.5 Pro)
+### 10.1. Summary as Described by AI (Gemini 1.5 Flash 500k)
 
 Merge Sort is a versatile sorting algorithm with a consistent time complexity of `O(n log n)` and a space complexity of `O(n)`. Its stability and efficiency make it a popular choice for various sorting tasks, including sorting large datasets, external sorting, and sorting linked lists.
+
+# 11. Thoughts on the AI's Explanations
+
+Preface: I do not use general AI's based in web browsers because they are not as accurate as a using a local AI model, so there are no screenshots of web browser AI's.
+Therefore, the AI model's responses given highlighted in this document are explanations that are derived from the documentation and specified constraints, requests, as well as given examples and best practices that i update during each project and assignment as well as requests that the specificed AI follow for each request to any of the available AI's.
+As an example. I use the Java JDK 22 Docs; Core Libraries API Specification Docs, as well as the 22 Language Specification Doc. This in addition to the JVM spec 22, Sequenced Collections API Specification 22, the the Java Collections API docs ensure I follow and referene documentation as well as best practices that are relevant to the request and project throughout. 
+This use of local indexing and processing allows for more accurate and reliable explanations and responses to be given by the AI model as well as allowing for the use of custom tools that are not available to web browser based AI's.
+This enhances the accuracy and reliability of the explanations and responses provided by the AI model as well as tailors the response to the specific requirements of the requests. 
+
+Thoughts on the context window size and resulting responses: 
+
+When using shorter context windowed models like Cursor-Small the responses are generally on par with the web browser based AI's.
+However, when using the larger context windowed models like Gemini Flash 1.5 (500k)the responses are consistently better and more accurate than those of the web browser based AI's.
+Especially considering that Flash 1.5 is extreamly fast, as well uses a custom indexing system within the request to specify the code it should use to generate the response, as well as allowing for the use of custom tools like a Smart Reranker and a Smart Reranker Filter to optimize the response to the specific requirements of the request.
+
+Thoughts on the AI's responses: 
+Since the considerable effort is given 
+
+
+
+
+
+This is for a variety of reasons general workflow reasons such as:
+1. The AI's based in web browsers are not as accurate to my requests as a using a local AI model.
+2. The AI's based in web browsers are not as fast as a using a local AI model.
+3. The AI's based in web browsers are not as customizable as a using a local AI model.
+4. The AI's based in web browsers are not as reliable as a using a local AI model. 
+
