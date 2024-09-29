@@ -3,11 +3,47 @@
 ## General Overview of Merge Sort
 
 - Merge Sort is a *divide-and-conquer* algorithm used for sorting arrays or lists. 
-- It works by recursively dividing the array into smaller subarrays 
-- This continues until each subarray contains a single element.
-- Then, it merges these subarrays to produce a newly sorted subarrays until the entire array is sorted.
-- Merge Sort is renowned for its efficiency and predictable performance, making it a popular choice for various applications because it ensures that the sorting process is both *stable* and *consistent*. 
+- It works by recursively dividing the array into smaller subarrays until each subarray contains a single element. This division is crucial as it simplifies the sorting process, allowing for easier merging later on.
+- Once the array is divided, the algorithm begins the merging process, where it combines the subarrays back together in a sorted manner. This merging continues until the entire array is sorted.
+- Merge Sort is renowned for its efficiency and predictable performance, making it a popular choice for various applications. It operates with a time complexity of O(n log n) in the average and worst cases, which is significantly better than simpler algorithms like Bubble Sort or Insertion Sort, especially for large datasets.
+- One of the key advantages of Merge Sort is its *stability*, meaning that it maintains the relative order of equal elements, which is essential in certain applications where the order of similar items matters.
+- Additionally, Merge Sort is well-suited for linked lists and can be implemented in a way that requires minimal additional space, making it a versatile choice for different data structures.
+- Its predictable performance and stability make Merge Sort a preferred algorithm in various applications, including sorting large datasets, external sorting (where data is too large to fit into memory), and in scenarios where consistent performance is critical.
 
+## Technical Analysis of Overview
+
+### Ordering of Subarrays
+
+During the merge process, the order of elements in the subarrays is determined by comparing the elements of the two sorted subarrays. The algorithm ensures that the smallest elements are placed first in the merged array, maintaining the overall sorted order.
+
+1. **Comparison Logic:**
+   - The `mergeSortedHalves` method is responsible for merging two sorted subarrays. It uses a while loop to compare the elements of the left and right subarrays:
+   ```java
+   while (leftIndex < leftSize && rightIndex < rightSize) {
+       if (leftArray[leftIndex] <= rightArray[rightIndex]) {
+           array[mergedIndex++] = leftArray[leftIndex++];
+       } else {
+           array[mergedIndex++] = rightArray[rightIndex++];
+       }
+   }
+   ```
+   - In this snippet, the algorithm checks if the current element in the left subarray (`leftArray[leftIndex]`) is less than or equal to the current element in the right subarray (`rightArray[rightIndex]`). If true, it places the left element into the main array and increments the respective index.
+
+2. **Handling Remaining Elements:**
+   - After the main comparison loop, any remaining elements in either subarray are copied to the main array:
+   ```java
+   while (leftIndex < leftSize) {
+       array[mergedIndex++] = leftArray[leftIndex++];
+   }
+   while (rightIndex < rightSize) {
+       array[mergedIndex++] = rightArray[rightIndex++];
+   }
+   ```
+   - This ensures that if one subarray is exhausted before the other, the remaining elements are added in their original order, preserving the stability of the sort.
+
+### Conclusion
+
+The ordering of subarrays in Merge Sort is achieved through systematic comparisons and merging of elements, ensuring that the final array is sorted. The algorithm's design allows it to efficiently handle large datasets while maintaining stability, making it a robust choice for various sorting tasks.
 
 ## Code of Classic Merge Sort
 
