@@ -8,6 +8,7 @@
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     id 'application'
+    id 'checkstyle'
 }
 
 repositories {
@@ -37,7 +38,5 @@ application {
     mainClass = 'mergesortgradlev1.App'
 }
 
-tasks.named('test') {
-    // Use JUnit Platform for unit tests.
-    useJUnitPlatform()
-}
+// Apply the common tasks from the external file
+apply from: 'common-tasks.gradle'
