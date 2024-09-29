@@ -1,0 +1,34 @@
+   <?xml version="1.0"?>
+   <!DOCTYPE module PUBLIC "-//Checkstyle//DTD Checkstyle Configuration 1.3//EN"
+       "https://checkstyle.sourceforge.io/dtds/configuration_1_3.dtd">
+   <module name="Checker">
+       <module name="TreeWalker">
+           <module name="WhitespaceAround"/>
+           <module name="LineLength">
+               <property name="max" value="120"/>
+           </module>
+           <module name="JavadocType"/>
+           <module name="JavadocMethod"/>
+           <module name="JavadocParagraph"/>
+           <module name="MissingJavadocType"/>
+           <module name="MissingJavadocMethod"/>
+           <module name="MissingJavadocPackage"/>
+           <module name="FinalLocalVariable"/>
+           <module name="FinalParameters"/>
+           <module name="MethodName">
+               <property name="format" value="^[a-z][a-zA-Z0-9]*$"/>
+           </module>
+           <module name="ClassName">
+               <property name="format" value="^[A-Z][a-zA-Z0-9]*$"/>
+           </module>
+           <module name="PackageName">
+               <property name="format" value="^[a-z]+(\\.[a-z][a-z0-9]*)*$"/>
+           </module>
+           <module name="IllegalImport">
+               <property name="illegalClasses" value="java.util.Date, java.util.Calendar"/>
+           </module>
+           <module name="EmptyMethod">
+               <property name="allowEmpty" value="false"/>
+           </module>
+       </module>
+   </module>
