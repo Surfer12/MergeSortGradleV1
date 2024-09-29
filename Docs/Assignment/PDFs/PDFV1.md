@@ -1,4 +1,4 @@
-# CIS232 Assignment 9: Merge Sort
+     # CIS232 Assignment 9: Merge Sort
 ## Instructions
 
 <!-- Assignment 9
