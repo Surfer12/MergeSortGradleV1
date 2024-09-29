@@ -1,51 +1,37 @@
 package mergesortgradlev1;
 
 import java.util.Arrays;
+import java.util.logging.Logger;
 
-public class MergeSortClaudeAlterV1 {
+public class MergeSortWithLogging {
+    private static final Logger logger = Logger.getLogger(MergeSortWithLogging.class.getName());
 
-    /**
-     * Performs the merge sort algorithm on the specified array segment.
-     *
-     * @param array      The array to be sorted.
-     * @param startIndex The starting index of the array segment.
-     * @param endIndex   The ending index of the array segment.
-     */
     public static void performMergeSort(int[] array, int startIndex, int endIndex) {
-        // Base case: if the segment has 1 or fewer elements, it's already sorted
+        logger.info("Sorting array segment: " + Arrays.toString(Arrays.copyOfRange(array, startIndex, endIndex + 1)));
+
         if (startIndex < endIndex) {
-            int middleIndex = startIndex + (endIndex - startIndex) / 2; // Find the middle point (avoids integer
-                                                                        // overflow)
+            int middleIndex = startIndex + (endIndex - startIndex) / 2;
 
             // Recursively sort the first half
-            performMergeSort(array, startIndex, middleIndex); // Left half
+            performMergeSort(array, startIndex, middleIndex);
 
             // Recursively sort the second half
-            performMergeSort(array, middleIndex + 1, endIndex); // Right half
+            performMergeSort(array, middleIndex + 1, endIndex);
 
             // Merge the sorted halves
             mergeSortedHalves(array, startIndex, middleIndex, endIndex);
         }
     }
 
-    /**
-     * Merges two sorted subarrays of the specified array.
-     *
-     * @param array       The array containing the subarrays.
-     * @param startIndex  The starting index of the left subarray.
-     * @param middleIndex The ending index of the left subarray and the middle
-     *                    point.
-     * @param endIndex    The ending index of the right subarray.
-     */
     public static void mergeSortedHalves(int[] array, int startIndex, int middleIndex, int endIndex) {
         int leftSize = middleIndex - startIndex + 1;
         int rightSize = endIndex - middleIndex;
 
-        // Create temporary arrays
         int[] leftArray = Arrays.copyOfRange(array, startIndex, middleIndex + 1);
         int[] rightArray = Arrays.copyOfRange(array, middleIndex + 1, endIndex + 1);
 
-        // Merge the temporary arrays back into array[startIndex..endIndex]
+        logger.info("Merging left: " + Arrays.toString(leftArray) + " and right: " + Arrays.toString(rightArray));
+
         int leftIndex = 0, rightIndex = 0, mergedIndex = startIndex;
         while (leftIndex < leftSize && rightIndex < rightSize) {
             if (leftArray[leftIndex] <= rightArray[rightIndex]) {
@@ -55,14 +41,21 @@ public class MergeSortClaudeAlterV1 {
             }
         }
 
-        // Copy remaining elements of leftArray[] if any
         while (leftIndex < leftSize) {
             array[mergedIndex++] = leftArray[leftIndex++];
         }
 
-        // Copy remaining elements of rightArray[] if any
         while (rightIndex < rightSize) {
             array[mergedIndex++] = rightArray[rightIndex++];
         }
+
+        logger.info("Merged array segment: " + Arrays.toString(Arrays.copyOfRange(array, startIndex, endIndex + 1)));
+    }
+
+    public static void main(String[] args) {
+        int[] array = { 5, 2, 8, 1, 3 };
+        logger.info("Initial array: " + Arrays.toString(array));
+        performMergeSort(array, 0, array.length - 1);
+        logger.info("Sorted array: " + Arrays.toString(array));
     }
 }

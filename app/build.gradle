@@ -16,7 +16,7 @@ repositories {
     mavenCentral()
 }
 
-dependencies {a
+dependencies {
     // Use JUnit Jupiter for testing.
     testImplementation libs.junit.jupiter
 
@@ -35,6 +35,6 @@ java {
 
 application {
     // Define the main class for the application.
-    mainClass = 'mergesortgradlev1.App'
+    mainClass = 'mergesortgradlev1.MergeSortWithLogging'
 }
 
