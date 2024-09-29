@@ -1,4 +1,4 @@
-package Assignment.SortAlgo;
+package ReferenceableCompletedProjects;
 
 import java.util.Arrays;
 

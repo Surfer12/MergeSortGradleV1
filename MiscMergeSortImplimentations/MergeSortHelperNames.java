@@ -1,4 +1,4 @@
-package ErrorsFound;
+package MiscMergeSortImplimentations;
 
 /**
  * Merge Sort implementation in Java.
