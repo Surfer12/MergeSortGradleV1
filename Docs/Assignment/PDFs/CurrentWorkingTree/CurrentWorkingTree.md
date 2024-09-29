@@ -417,15 +417,10 @@ However, when using the larger context windowed models like Gemini Flash 1.5 (50
 Especially considering that Flash 1.5 is extreamly fast, as well uses a custom indexing system within the request to specify the code it should use to generate the response, as well as allowing for the use of custom tools like a Smart Reranker and a Smart Reranker Filter to optimize the response to the specific requirements of the request.
 
 Thoughts on the AI's responses: 
-Since the considerable effort is given 
+Considering the considerable effort to ensure that the context window is optimized for the request and that the AI's responses are based on the specified constraints, requests, as well as given examples and best practices that are updated during each project and assignment I find that the AI's responses are spectacular, especially when analyzing algorithms.
 
+In addition, the AI's responses are always better than the responses given by the web browser based AI's because they follow constraints given on hand and act as a documentation refrence tool as well as a 'tutor' when stuck on a concept.
 
+The constraints as well as the examples and best practices are invaluable as they make the learning process of difficult concepts easier to understand and follow without complicating the explanation with unnecessary details or other aspects that are not relevant to the request.
 
-
-
-This is for a variety of reasons general workflow reasons such as:
-1. The AI's based in web browsers are not as accurate to my requests as a using a local AI model.
-2. The AI's based in web browsers are not as fast as a using a local AI model.
-3. The AI's based in web browsers are not as customizable as a using a local AI model.
-4. The AI's based in web browsers are not as reliable as a using a local AI model. 
 
