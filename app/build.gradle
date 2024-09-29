@@ -16,7 +16,7 @@ repositories {
     mavenCentral()
 }
 
-dependencies {
+dependencies {a
     // Use JUnit Jupiter for testing.
     testImplementation libs.junit.jupiter
 

@@ -46,3 +46,5 @@ Thumbs.db
 .gradle/8.8/executionHistory/executionHistory.bin
 .gradle/8.8/fileHashes/resourceHashesCache.bin
 .gradle/buildOutputCleanup/outputFiles.bin
+.gradle/file-system.probe
+.gradle/file-system.probe
